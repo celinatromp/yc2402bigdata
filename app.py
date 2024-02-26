@@ -1,5 +1,8 @@
 from flask import Flask 
 import felix
+import asef
+import celina
+import dennis
 
 from flask_cors import CORS
 
@@ -17,3 +20,15 @@ def tweedetest():
 @app.route("/derdetest")
 def derdetest():
     return felix.mijnmethode()
+
+@app.route("/testcelina")
+def testcelina():
+    return celina.mijnmethode()
+
+@app.route("/testasef")
+def testasef():
+    return asef.mijnmethode()
+
+@app.route("/testdennis")
+def testdennis():
+    return dennis.mijnmethode()
