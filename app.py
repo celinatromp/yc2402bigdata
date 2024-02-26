@@ -17,9 +17,9 @@ def hello_world():
 def tweedetest():
     return "<p>Dit is mijn tweede test</p>"
 
-@app.route("/derdetest")
-def derdetest():
-    return felix.mijnmethode()
+@app.route("/derdetest/<pokemonnaam>")
+def derdetest(pokemonnaam):
+    return felix.mijnmethode(pokemonnaam)
 
 @app.route("/testcelina")
 def testcelina():
