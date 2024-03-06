@@ -36,3 +36,7 @@ def testdennis():
 @app.route("/testdennis/<jaar>")
 def salary_vs_company_size(jaar):
     return dennis.data_to_json(dennis.salary_vs_company_size(jaar))
+
+@app.route("/taalprijs")
+def salary_vs_language():
+    return celina.language_salary()
