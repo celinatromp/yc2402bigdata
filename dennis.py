@@ -23,7 +23,7 @@ def get_data(columns, jaar):
 def salary_vs_company_size(jaar):
     abc = 'Yearly brutto salary (without bonus and stocks) in EUR'
     columns = [abc, 'Company size']
-    df = get_data(columns, jaar)
+    df = get_data(columns, jaar).rename(columns={abc: 'Yearly bruto salary'})
     no_na = df[df['Company size'].notna()]
     mydata = no_na.groupby('Company size').mean()
 
@@ -48,5 +48,5 @@ def data_to_json(data):
 
 
 #print(set(get_data(['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'], 2020)))
-#print(salary_vs_company_size(2020))
-print(data_to_json(salary_vs_company_size(2020)))
+print(salary_vs_company_size(2020))
+#print(data_to_json(salary_vs_company_size(2020)))
