@@ -21,24 +21,27 @@ def get_data(columns, jaar):
 
 
 def salary_vs_company_size(jaar):
-    abc = 'Yearly brutto salary (without bonus and stocks) in EUR'
-    columns = [abc, 'Company size']
-    df = get_data(columns, jaar).rename(columns={abc: 'Yearly bruto salary'})
-    no_na = df[df['Company size'].notna()]
-    mydata = no_na.groupby('Company size').mean()
+    c1 = 'Yearly brutto salary (without bonus and stocks) in EUR'
+    c2 = 'Company size'
+    columns = [c1, c2]
+    df = get_data(columns, jaar).rename(columns={c1: 'YearlyBrutoSalary', c2: 'CompanySize'})
+    no_na = df[df['CompanySize'].notna()]
+    mydata = no_na.groupby('CompanySize').mean()
 
     return mydata.round(2)
 
 
-def salary_vs_company_size2(jaar):
-    index = pd.MultiIndex.from_arrays(get_data(jaar), names=('Position ', 'Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'))
-    abc = 'Yearly brutto salary (without bonus and stocks) in EUR'
-    columns = ['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size']
-    df = pd.DataFrame({'Company size'}, index=index)
-    no_na = df[df['Company size'].notna()]
-    mydata = no_na.groupby('Company size').mean()
+def small_company(jaar):
+    df = pd.read_csv('IT_Salary_Survey_EU_' + str(jaar) + '.csv')
+    total = 0
+    for i, line in df.iterrows():
+        if 'up to 10' == line['Company size']:
+            print(line['Company size'])
+            total += 1
+    return print(total)
 
-    return mydata.round(2)
+
+small_company(2020)
 
 
 def data_to_json(data):
@@ -48,5 +51,5 @@ def data_to_json(data):
 
 
 #print(set(get_data(['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'], 2020)))
-print(salary_vs_company_size(2020))
+#print(salary_vs_company_size(2020))
 #print(data_to_json(salary_vs_company_size(2020)))
