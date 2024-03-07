@@ -21,24 +21,46 @@ def get_data(columns, jaar):
 
 
 def salary_vs_company_size(jaar):
-    abc = 'Yearly brutto salary (without bonus and stocks) in EUR'
-    columns = [abc, 'Company size']
-    df = get_data(columns, jaar).rename(columns={abc: 'Yearly bruto salary'})
-    no_na = df[df['Company size'].notna()]
-    mydata = no_na.groupby('Company size').mean()
+    c1 = 'Yearly brutto salary (without bonus and stocks) in EUR'
+    c2 = 'Company size'
+    columns = [c1, c2]
+    df = get_data(columns, jaar).rename(columns={c1: 'YearlyBrutoSalary', c2: 'CompanySize'})
+    no_na = df[df['CompanySize'].notna()]
+    mydata = no_na.groupby('CompanySize').mean()
 
     return mydata.round(2)
 
 
-def salary_vs_company_size2(jaar):
-    index = pd.MultiIndex.from_arrays(get_data(jaar), names=('Position ', 'Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'))
-    abc = 'Yearly brutto salary (without bonus and stocks) in EUR'
-    columns = ['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size']
-    df = pd.DataFrame({'Company size'}, index=index)
-    no_na = df[df['Company size'].notna()]
-    mydata = no_na.groupby('Company size').mean()
+def small_company(beroep="devops", jaar="2020"):
+    df = pd.read_csv('IT_Salary_Survey_EU_' + str(jaar) + '.csv')
+    total = 0
+    YearlyBrutoSalaryColumn = 'Yearly brutto salary (without bonus and stocks) in EUR'
+    extra_small_company = 'up to 10'
 
-    return mydata.round(2)
+    small_company = '11-50'
+    small_company_salary = []
+
+    medium_company = '51-100'
+    medium_company_salary = []
+
+    large_company = '101-1000'
+    large_company_salary = []
+
+    extra_large_company = '1000+'
+    extra_large_company_salary = []
+
+    for i, line in df.iterrows():
+        if str(line['Position ']).lower() == beroep:
+            if line['Company size'] == extra_small_company or line['Company size'] == small_company:
+                small_company_salary.append(line[YearlyBrutoSalaryColumn])
+            
+            if line['Company size'] == medium_company:
+                medium_company_salary.append(line[YearlyBrutoSalaryColumn])
+                
+    return print(small_company_salary)
+
+
+small_company()
 
 
 def data_to_json(data):
@@ -48,5 +70,5 @@ def data_to_json(data):
 
 
 #print(set(get_data(['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'], 2020)))
-print(salary_vs_company_size(2020))
+#print(salary_vs_company_size(2020))
 #print(data_to_json(salary_vs_company_size(2020)))
