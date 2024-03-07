@@ -37,9 +37,19 @@ def salary_vs_company_size(jaar):
     return mydata.round(2)
 
 
-def small_company(beroep="devops", jaar="2020"):
-    df = pd.read_csv('IT_Salary_Survey_EU_' + str(jaar) + '.csv')
+def calculate_average(calc_list):
     total = 0
+    for x in calc_list:
+        total += x
+
+    average = total / len(calc_list)
+
+    return round(average, 2)
+
+
+def company_salary_average(beroep="devops", jaar="2020"):
+    df = pd.read_csv('IT_Salary_Survey_EU_' + str(jaar) + '.csv')
+
     YearlyBrutoSalaryColumn = 'Yearly brutto salary (without bonus and stocks) in EUR'
     extra_small_company = 'up to 10'
 
@@ -59,14 +69,24 @@ def small_company(beroep="devops", jaar="2020"):
         if str(line['Position ']).lower() == beroep:
             if line['Company size'] == extra_small_company or line['Company size'] == small_company:
                 small_company_salary.append(line[YearlyBrutoSalaryColumn])
-            
-            if line['Company size'] == medium_company:
+
+            elif line['Company size'] == medium_company:
                 medium_company_salary.append(line[YearlyBrutoSalaryColumn])
-                
-    return print(small_company_salary)
+
+            elif line['Company size'] == large_company:
+                large_company_salary.append(line[YearlyBrutoSalaryColumn])
+
+            elif line['Company size'] == extra_large_company:
+                extra_large_company_salary.append(line[YearlyBrutoSalaryColumn])
+
+    return {'position': beroep,
+            'small': calculate_average(small_company_salary),
+            'medium': calculate_average(medium_company_salary),
+            'large': calculate_average(large_company_salary),
+            'xlarge': calculate_average(extra_large_company_salary)}
 
 
-small_company()
+# print(company_salary_average())
 
 
 def data_to_json(data):
@@ -75,6 +95,14 @@ def data_to_json(data):
     return dumps(parsed, indent=4)
 
 
-#print(set(get_data(['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'], 2020)))
-#print(salary_vs_company_size(2020))
-#print(data_to_json(salary_vs_company_size(2020)))
+def dict_to_json(data):
+    # Convert the dictionary into a JSON string
+    json_string = dumps(data, indent=4)
+    parsed = loads(json_string)
+    return dumps(parsed, indent=4)
+
+
+print(dict_to_json(company_salary_average()))
+# print(set(get_data(['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'], 2020)))
+# print(salary_vs_company_size(2020))
+# print(data_to_json(company_salary_average()))
