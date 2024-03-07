@@ -27,6 +27,12 @@ def salary_vs_company_size(jaar):
     df = get_data(columns, jaar).rename(columns={c1: 'YearlyBrutoSalary', c2: 'CompanySize'})
     no_na = df[df['CompanySize'].notna()]
     mydata = no_na.groupby('CompanySize').mean()
+    c1 = 'Yearly brutto salary (without bonus and stocks) in EUR'
+    c2 = 'Company size'
+    columns = [c1, c2]
+    df = get_data(columns, jaar).rename(columns={c1: 'YearlyBrutoSalary', c2: 'CompanySize'})
+    no_na = df[df['CompanySize'].notna()]
+    mydata = no_na.groupby('CompanySize').mean()
 
     return mydata.round(2)
 
