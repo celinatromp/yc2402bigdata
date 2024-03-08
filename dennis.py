@@ -20,37 +20,22 @@ def get_data(columns, jaar):
     return mydata
 
 
-def salary_vs_company_size(jaar):
-    c1 = 'Yearly brutto salary (without bonus and stocks) in EUR'
-    c2 = 'Company size'
-    columns = [c1, c2]
-    df = get_data(columns, jaar).rename(columns={c1: 'YearlyBrutoSalary', c2: 'CompanySize'})
-    no_na = df[df['CompanySize'].notna()]
-    mydata = no_na.groupby('CompanySize').mean()
-    c1 = 'Yearly brutto salary (without bonus and stocks) in EUR'
-    c2 = 'Company size'
-    columns = [c1, c2]
-    df = get_data(columns, jaar).rename(columns={c1: 'YearlyBrutoSalary', c2: 'CompanySize'})
-    no_na = df[df['CompanySize'].notna()]
-    mydata = no_na.groupby('CompanySize').mean()
-
-    return mydata.round(2)
-
-
 def calculate_average(calc_list):
     total = 0
     for x in calc_list:
         total += x
-
-    average = total / len(calc_list)
+    try:
+        average = total / len(calc_list)
+    except ZeroDivisionError:
+        average = 0
 
     return round(average, 2)
 
 
-def company_salary_average(beroep="devops", jaar="2020"):
+def job_salary_average(beroep="devops", jaar="2020"):
     df = pd.read_csv('IT_Salary_Survey_EU_' + str(jaar) + '.csv')
 
-    YearlyBrutoSalaryColumn = 'Yearly brutto salary (without bonus and stocks) in EUR'
+    YearlyBrutoSalaryColumn = 'Yearly bruto salary (without bonus and stocks) in EUR'
     extra_small_company = 'up to 10'
 
     small_company = '11-50'
@@ -66,7 +51,7 @@ def company_salary_average(beroep="devops", jaar="2020"):
     extra_large_company_salary = []
 
     for i, line in df.iterrows():
-        if str(line['Position ']).lower() == beroep:
+        if str(line['Position']).lower().strip() == beroep:
             if line['Company size'] == extra_small_company or line['Company size'] == small_company:
                 small_company_salary.append(line[YearlyBrutoSalaryColumn])
 
@@ -89,6 +74,29 @@ def company_salary_average(beroep="devops", jaar="2020"):
 # print(company_salary_average())
 
 
+def all_positions(jaar="2020"):
+    df = pd.read_csv('IT_Salary_Survey_EU_' + str(jaar) + '.csv')
+    total_jobs = []
+    for i, line in df.iterrows():
+        total_jobs.append(str(line['Position']).lower().strip())
+    return set(total_jobs)
+
+#print(all_positions())
+
+
+def jobs_salary(jaar="2020"):
+    mylist = all_positions(jaar)
+    returnlist = []
+
+    for job in mylist:
+        returnlist.append(job_salary_average(job, jaar))
+
+    return returnlist
+
+#print(jobs_salary())
+
+
+
 def data_to_json(data):
     result = data.to_json(orient="records")
     parsed = loads(result)
@@ -96,11 +104,15 @@ def data_to_json(data):
 
 
 def dict_to_json(data):
-    array = [{i: data[i] for i in data}]
-    return dumps(array, indent=4)
+    if type(data) is dict:
+        array = [{i: data[i] for i in data}]
+        return dumps(array, indent=4)
+    else:
+        return dumps(data, indent=4)
 
 
-print(dict_to_json(company_salary_average()))
+print(dict_to_json(jobs_salary()))
+#print(dict_to_json(company_salary_average()))
 # print(set(get_data(['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'], 2020)))
 # print(salary_vs_company_size(2020))
 # print(data_to_json(company_salary_average()))
