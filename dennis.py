@@ -96,10 +96,8 @@ def data_to_json(data):
 
 
 def dict_to_json(data):
-    # Convert the dictionary into a JSON string
-    json_string = dumps(data, indent=4)
-    parsed = loads(json_string)
-    return dumps(parsed, indent=4)
+    array = [{i: data[i] for i in data}]
+    return dumps(array, indent=4)
 
 
 print(dict_to_json(company_salary_average()))
