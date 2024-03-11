@@ -111,8 +111,9 @@ def dict_to_json(data):
         return dumps(data, indent=4)
 
 
-print(dict_to_json(jobs_salary()))
+# print(dict_to_json(jobs_salary()))
 #print(dict_to_json(company_salary_average()))
 # print(set(get_data(['Yearly brutto salary (without bonus and stocks) in EUR', 'Company size'], 2020)))
 # print(salary_vs_company_size(2020))
 # print(data_to_json(company_salary_average()))
+print("Module Dennis")
