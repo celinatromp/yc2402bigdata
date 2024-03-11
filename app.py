@@ -40,3 +40,6 @@ def salary_vs_company_size(jaar):
 @app.route("/taalprijs")
 def salary_vs_language():
     return celina.language_salary()
+
+if __name__ == "__main__":
+    app.run(debug=True)
