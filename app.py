@@ -41,3 +41,6 @@ def salary_vs_company_size(jaar):
 def salary_vs_language():
     return celina.language_salary()
 
+@app.route("/taalkeuze/<de_taal>")
+def choice_language(de_taal):
+    return celina.language_choice(de_taal)
