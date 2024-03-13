@@ -15,7 +15,7 @@ print (mijnmethode() + str(4+5))
 programming_languages = []
 salary_survey = pandas.read_csv("IT_Salary_Survey_EU_2020.csv")
 for i,regel in salary_survey.iterrows():
-    new_entry= str(regel["Your main technology / programming language"])
+    new_entry= str(regel["programminglanguage"])
     if new_entry.lower() in programming_languages:
         continue
     programming_languages.append(new_entry.lower())
@@ -108,223 +108,223 @@ def language_salary():
     spark_aantal = 0
     # Calculations for average salaries of programming languages.
     for i,regel in salary_survey.iterrows():
-        print("---",str(regel["Your main technology / programming language"]).lower())
+        print("---",str(regel["programminglanguage"]).lower())
         # Calculate average salary Python
-        if "python" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
-            #for regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+        if "python" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
+            #for regel["annualbrutoearnings"]
             python_aantal += 1
-            python_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            python_totaal_salaris+=regel["annualbrutoearnings"]
         # Calculate average salary JavaScript
-        elif "javascript" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "javascript" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             js_aantal += 1
-            js_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
-        elif "js" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+            js_totaal_salaris+=regel["annualbrutoearnings"]
+        elif "js" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             js_aantal += 1
-            js_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            js_totaal_salaris+=regel["annualbrutoearnings"]
         # Calculate average salary Java
-        elif "java" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "java" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             java_aantal += 1
-            java_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            java_totaal_salaris+=regel["annualbrutoearnings"]
         # Calculate average salary SQL
-        elif "sql" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "sql" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             sql_aantal += 1
-            sql_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            sql_totaal_salaris += regel["annualbrutoearnings"]
         # Calculate average salary Ruby
-        elif "ruby" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "ruby" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             ruby_aantal += 1
-            ruby_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            ruby_totaal_salaris += regel["annualbrutoearnings"]
         # Calculate average salary C#
-        elif "c#" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "c#" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             csharp_aantal += 1
-            csharp_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            csharp_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary PHP
-        elif "php" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "php" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             php_aantal += 1
-            php_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            php_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary C++
-        elif "c++" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "c++" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             cpp_aantal += 1
-            cpp_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            cpp_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Kotlin
-        elif "kotlin" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "kotlin" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             kotlin_aantal += 1
-            kotlin_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            kotlin_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary ES6
-        elif "es6" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "es6" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             es6_aantal += 1
-            es6_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            es6_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Scala
-        elif "scala" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "scala" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             scala_aantal += 1
-            scala_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            scala_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary VHDL
-        elif "vhdl" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "vhdl" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             vhdl_aantal += 1
-            vhdl_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            vhdl_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Swift
-        elif "swift" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "swift" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             swift_aantal += 1
-            swift_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            swift_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary ML
-        elif "ml" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "ml" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             ml_aantal += 1
-            ml_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            ml_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary YAML
-        elif "yaml" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "yaml" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             yaml_aantal += 1
-            yaml_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            yaml_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary C
-        elif "c" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "c" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             c_aantal += 1
-            c_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            c_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Embedded C
-        elif "embedded c" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "embedded c" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             embeddedc_aantal += 1
-            embeddedc_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            embeddedc_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Objective-C
-        elif "objective-c" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "objective-c" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             objectivec_aantal += 1
-            objectivec_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            objectivec_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary R
-        elif "r" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "r" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             r_aantal += 1
-            r_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            r_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Bash
-        elif "bash" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "bash" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             bash_aantal += 1
-            bash_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            bash_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Pascal
-        elif "pascal" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "pascal" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             pascal_aantal += 1
-            pascal_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            pascal_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Elixer
-        elif "elixir" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "elixir" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             elixir_aantal += 1
-            elixir_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            elixir_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Erlang
-        elif "erlang" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "erlang" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             erlang_aantal += 1
-            erlang_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            erlang_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary ABAP
-        elif "abap" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "abap" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             abap_aantal += 1
-            abap_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            abap_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary QML
-        elif "qml" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "qml" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             qml_aantal += 1
-            qml_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            qml_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Groovy
-        elif "groovy" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "groovy" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             groovy_aantal += 1
-            groovy_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            groovy_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Cobol
-        elif "cobol" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "cobol" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             cobol_aantal += 1
-            cobol_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            cobol_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Clojure
-        elif "clojure" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "clojure" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             clojure_aantal += 1
-            clojure_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            clojure_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Julia
-        elif "julia" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "julia" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             julia_aantal += 1
-            julia_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            julia_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Perl
-        elif "perl" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "perl" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             perl_aantal += 1
-            perl_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            perl_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Haskell
-        elif "haskell" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "haskell" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             haskell_aantal += 1
-            haskell_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            haskell_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary SAS
-        elif "sas" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "sas" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             sas_aantal += 1
-            sas_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            sas_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary Matlab
-        elif "matlab" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "matlab" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             matlab_aantal += 1
-            matlab_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            matlab_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary PostScript
-        elif "ps" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "ps" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             ps_aantal += 1
-            ps_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            ps_totaal_salaris += regel["annualbrutoearnings"]
             # Calculate average salary CSS3
-        elif "css3" ==  str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "css3" ==  str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             css3_aantal += 1
-            css3_totaal_salaris += regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            css3_totaal_salaris += regel["annualbrutoearnings"]
           # Calculate average salary TypeScript
-        elif "typescript" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "typescript" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             ts_aantal += 1
-            ts_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
-        elif "ts" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+            ts_totaal_salaris+=regel["annualbrutoearnings"]
+        elif "ts" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             ts_aantal += 1
-            ts_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            ts_totaal_salaris+=regel["annualbrutoearnings"]
             # Calculate average salary Go
-        elif "go" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "go" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             go_aantal += 1
-            go_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
-        elif "golang" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+            go_totaal_salaris+=regel["annualbrutoearnings"]
+        elif "golang" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             go_aantal += 1
-            go_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            go_totaal_salaris+=regel["annualbrutoearnings"]
             # Calculate average salary Visual Basic
-        elif "vb.net" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "vb.net" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             vb_aantal += 1
-            vb_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
-        elif "vb" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+            vb_totaal_salaris+=regel["annualbrutoearnings"]
+        elif "vb" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             vb_aantal += 1
-            vb_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            vb_totaal_salaris+=regel["annualbrutoearnings"]
             # Calculate average salary Spark
-        elif "spark" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+        elif "spark" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             spark_aantal += 1
-            spark_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
-        elif "apache spark" == str(regel["Your main technology / programming language"]).lower():
-            print("Ja", regel["Your main technology / programming language"], regel["Yearly brutto salary (without bonus and stocks) in EUR"])
+            spark_totaal_salaris+=regel["annualbrutoearnings"]
+        elif "apache spark" == str(regel["programminglanguage"]).lower():
+            print("Ja", regel["programminglanguage"], regel["annualbrutoearnings"])
             spark_aantal += 1
-            spark_totaal_salaris+=regel["Yearly brutto salary (without bonus and stocks) in EUR"]
+            spark_totaal_salaris+=regel["annualbrutoearnings"]
     print(python_aantal)
     print(python_totaal_salaris)
     print(python_totaal_salaris/python_aantal)
@@ -343,14 +343,14 @@ def language_salary():
 def language_name():
     language_survey = pandas.read_csv("IT_Salary_Survey_EU_2020.csv")
     for i,language in language_survey.iterrows():
-        language["Your main technology / programming language"] = language["Your main technology / programming language"].str.lower()
+        language["programminglanguage"] = language["programminglanguage"].str.lower()
         print(language)
 
 def language_choice(de_taal):
     salary_survey = pandas.read_csv("IT_Salary_Survey_EU_2020.csv")
     for i,regel in salary_survey.iterrows():
-        print("---",str(regel["Your main technology / programming language"]).lower())
-        de_tekst_in_kleine_letters = str(regel["Your main technology / programming language"]).lower()
+        print("---",str(regel["programminglanguage"]).lower())
+        de_tekst_in_kleine_letters = str(regel["programminglanguage"]).lower()
         if de_tekst_in_kleine_letters == de_taal :
             print("Yes, een match.")
         elif de_tekst_in_kleine_letters.find(de_taal) >= 0:
