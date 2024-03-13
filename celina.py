@@ -347,12 +347,20 @@ def language_name():
         print(language)
 
 def language_choice(de_taal):
+    detaal_totaal_salaris = 0
+    detaal_aantal = 0
     salary_survey = pandas.read_csv("IT_Salary_Survey_EU_2020.csv")
     for i,regel in salary_survey.iterrows():
-        print("---",str(regel["programminglanguage"]).lower())
-        de_tekst_in_kleine_letters = str(regel["programminglanguage"]).lower()
-        if de_tekst_in_kleine_letters == de_taal :
-            print("Yes, een match.")
-        elif de_tekst_in_kleine_letters.find(de_taal) >= 0:
-            print("Komt in de titel voor.")
-    return "ABC" + de_taal
+        #print("---",str(regel["programminglanguage"]).lower())
+        #de_tekst_in_kleine_letters = str(regel["programminglanguage"]).lower()
+       # if de_tekst_in_kleine_letters == de_taal :
+            #print("Yes, een match.")
+        #elif de_tekst_in_kleine_letters.find(de_taal) >= 0:
+            #print("Komt in de titel voor.")
+        #calculate average earnings for chosen language
+        if de_taal ==  str(regel["programminglanguage"]).lower():
+            detaal_aantal += 1
+            detaal_totaal_salaris += regel["annualbrutoearnings"]
+    return "Average salary " + de_taal + " programmer in 2020: " + str(math.ceil(detaal_totaal_salaris/detaal_aantal)) + " EUR."
+    #return "ABC" + de_taal
+    
